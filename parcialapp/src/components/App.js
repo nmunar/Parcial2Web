@@ -8,15 +8,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 function App(props) {
-  //Poner los hooks
   const [lista, setLitst] = useState([]);
   const [currentObj, setCurrentObj] = useState({});
   const [message, setMessage] = useState("");
-  //Declarar variables
-  let updateCurrentObj = (obj) => {
-    setCurrentObj(obj);
-  };
-  //useEffect(()=>{se setean las constantes hooks, fetch y todo para usarse en el return},[])
+
   useEffect(() => {
     if (navigator.onLine) {
       let URL = "";
@@ -43,7 +38,7 @@ function App(props) {
       }
     }
   }, []);
-  //Return
+
   return (
     <React.Fragment>
       <Navbar id="navbar">
@@ -57,7 +52,11 @@ function App(props) {
           </Col>
         </Row>
         <Row>
-          <Chart objs={lista} />
+          {navigator.onLine ? (
+            <Chart objs={lista} />
+          ) : (
+            <p>Conectarse para ver gráfica</p>
+          )}
         </Row>
       </Container>
     </React.Fragment>
