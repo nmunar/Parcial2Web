@@ -34,23 +34,32 @@ function List(props) {
         </thead>
         <tbody>
           {props.objs.map((obj) => {
-            <tr onClick={() => props.updateCurrentObj(obj)} className="rows">
-              <td>{obj.id}</td>
-              <td>
-                <img alt="pokemon" src={obj.id} height="50" width="50" />
-              </td>
-              <td>{obj.name}</td>
-              <td>{obj.description}</td>
-              <td>{obj.weight}</td>
-              <td>{obj.height}</td>
-              <td>
-                {obj.type.map((tipo) => {
-                  <h6>
-                    <span class="badge badge-secondary">{tipo}</span>
-                  </h6>;
-                })}
-              </td>
-            </tr>;
+            return (
+              <tr className="rows">
+                <td>{obj.id}</td>
+                <td>
+                  <img
+                    alt="pokemon"
+                    src={obj.ThumbnailImage}
+                    height="50"
+                    width="50"
+                  />
+                </td>
+                <td>{obj.name}</td>
+                <td>{obj.description}</td>
+                <td>{obj.weight}</td>
+                <td>{obj.height}</td>
+                <td>
+                  {obj.type.map((tipo) => {
+                    return (
+                      <h6>
+                        <span class="badge badge-secondary">{tipo}</span>
+                      </h6>
+                    );
+                  })}
+                </td>
+              </tr>
+            );
           })}
         </tbody>
       </Table>

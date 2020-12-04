@@ -19,7 +19,7 @@ ReactDOM.render(
         userLang.substring(0, 2) === "es" ? localeEsMessages : localeEnMessages
       }
     >
-      <App lan={userLang} />
+      <App lan={userLang.substring(0, 2)} />
     </IntlProvider>
   </React.StrictMode>,
   document.getElementById("root")

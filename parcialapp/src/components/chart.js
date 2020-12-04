@@ -16,7 +16,7 @@ const Chart = (props) => {
 
       const maxValue = Math.max.apply(
         Math,
-        props.movies.map((o) => o.views)
+        props.objs.map((o) => o.height)
       );
 
       const svg = canvas.append("svg");
